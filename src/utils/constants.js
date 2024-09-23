@@ -1,23 +1,18 @@
 export const dateFormatter = (time) => {
-    let timestamp = time;
-    let date = new Date(timestamp * 1000);
+    let date = new Date(time * 1000);
 
     let year = date.getUTCFullYear();
     let month = date.getUTCMonth() + 1;
-    let day = date.toLocaleString('en-US', { weekday: 'long' });;
+    let day = date.toLocaleString('en-US', { weekday: 'long' });
     let hours = date.getUTCHours();
     let minutes = date.getUTCMinutes();
     let seconds = date.getUTCSeconds();
 
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-
     return {
-        year, month, day, hours, minutes, seconds, ampm
-    }
+        year, month, day, hours, minutes, seconds
+    };
 }
+
 
 
 export const weatherImage = {

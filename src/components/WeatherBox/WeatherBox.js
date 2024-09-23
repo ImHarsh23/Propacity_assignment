@@ -4,7 +4,7 @@ import styles from "./WeatherBox.module.css";
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setForecast, setAdditionalData, setLoading, setError } from '../../redux/action';
-import { convertToFahrenheit, dateFormatter, weatherImage } from '../../utils/constants';
+import { convertToFahrenheit, weatherImage } from '../../utils/constants';
 import Loader from '../Loader/Loader';
 
 const apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
@@ -22,21 +22,31 @@ const WeatherBox = () => {
             const forcastArray = data.list.filter((item) =>
                 item.dt_txt.includes("00:00:00")
             );
+
             const timezoneOffset = data.city.timezone;
             let todayData = data.list[0];
             let { humidity, pressure } = todayData.main;
-            let timeAndDate = dateFormatter(todayData.dt + timezoneOffset);
             const utcDate = new Date();
             const utcTime = utcDate.getTime() + (utcDate.getTimezoneOffset() * 60000);
             const currentTime = new Date(utcTime + (timezoneOffset * 1000));
+
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            hours = hours < 10 ? `0${hours}` : hours;
+
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
             dispatch(setForecast(forcastArray));
             dispatch(setAdditionalData({ humidity, pressure, visiblity: todayData.visibility }));
 
             setInfo({
                 country: data.city.country,
                 city: data.city.name,
-                day: timeAndDate.day,
-                time: `${currentTime.getHours()}:${currentTime.getMinutes()} ${timeAndDate.ampm}`,
+                day: currentTime.toLocaleString('en-US', { weekday: 'long' }),
+                time: `${hours}:${minutes} ${ampm}`,
                 temperature: Math.floor(todayData.main.temp),
                 weatherInfo: todayData.weather[0].description,
                 weather: todayData.weather[0].main,

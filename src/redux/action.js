@@ -1,4 +1,3 @@
-// src/redux/actions/index.js
 export const setCelsius = () => {
     return {
         type: 'SET_CELSIUS'
