@@ -67,5 +67,7 @@ h1 {
 @media (max-width: 768px) {
     .container {
         flex-wrap: wrap;
+        margin-top: 0;
+        border-radius: 0px;
     }
 }

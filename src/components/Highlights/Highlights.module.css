@@ -32,7 +32,8 @@ h1 {
 
 @media (max-width: 968px) {
     .box {
-        padding: 0.5rem;
+        padding: 0.2rem;
+        align-items: center;
     }
 
     .box span {
