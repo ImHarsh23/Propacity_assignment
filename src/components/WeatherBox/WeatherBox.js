@@ -22,10 +22,13 @@ const WeatherBox = () => {
             const forcastArray = data.list.filter((item) =>
                 item.dt_txt.includes("00:00:00")
             );
+            const timezoneOffset = data.city.timezone;
             let todayData = data.list[0];
             let { humidity, pressure } = todayData.main;
             let timeAndDate = dateFormatter(todayData.dt);
-            let currentTime = new Date();
+            const utcDate = new Date();
+            const utcTime = utcDate.getTime() + (utcDate.getTimezoneOffset() * 60000);
+            const currentTime = new Date(utcTime + (timezoneOffset * 1000));
             dispatch(setForecast(forcastArray));
             dispatch(setAdditionalData({ humidity, pressure, visiblity: todayData.visibility }));
 
