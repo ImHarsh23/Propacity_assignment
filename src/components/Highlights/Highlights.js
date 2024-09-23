@@ -18,18 +18,18 @@ const Highlights = () => {
                         <p>Humidity</p>
                         <span>{data.humidity}&nbsp;%</span>
                         <div>
-                            <img src={weatherImage.Humidity} width={64}></img>
+                            <img src={weatherImage.Humidity} width={64} alt=''></img>
                         </div>
                     </div>
                     <div className={styles.box}>
                         <p>Pressure</p>
                         <span>{data.pressure}&nbsp;hPa</span>
-                        <img src={weatherImage.Pressure} width={64}></img>
+                        <img src={weatherImage.Pressure} width={64} alt=''></img>
                     </div>
                     <div className={styles.box}>
                         <p>Visibility</p>
                         <span>{data.visiblity / 1000}&nbsp;km</span>
-                        <img src={weatherImage.Visibility} width={64}></img>
+                        <img src={weatherImage.Visibility} width={64} alt=''></img>
                     </div>
                 </div >
             </div>

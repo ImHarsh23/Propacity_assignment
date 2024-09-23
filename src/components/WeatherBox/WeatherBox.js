@@ -25,7 +25,7 @@ const WeatherBox = () => {
             const timezoneOffset = data.city.timezone;
             let todayData = data.list[0];
             let { humidity, pressure } = todayData.main;
-            let timeAndDate = dateFormatter(todayData.dt);
+            let timeAndDate = dateFormatter(todayData.dt + timezoneOffset);
             const utcDate = new Date();
             const utcTime = utcDate.getTime() + (utcDate.getTimezoneOffset() * 60000);
             const currentTime = new Date(utcTime + (timezoneOffset * 1000));
