@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-block: 2rem;
+    gap: 3rem;
+    justify-content: center;
+}
+
+h1 {
+    margin-top: 3rem;
+}
+
+.box {
+    padding: 1rem;
+    background: white;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.box p {
+    color: rgb(170, 170, 170);
+}
+
+.box span {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+@media (max-width: 968px) {
+    .box {
+        padding: 0.5rem;
+    }
+
+    .box span {
+        font-size: 1.5rem;
+    }
+}
