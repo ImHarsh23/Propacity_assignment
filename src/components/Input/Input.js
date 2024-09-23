@@ -64,7 +64,7 @@ const Input = () => {
         <>
             <form className={styles.searchForm} onSubmit={handleSubmit}>
                 <button type="submit" className={styles.button}>
-                    <i className={`fa fa-search ${styles.icon}`}></i>
+                    <img src='https://www.svgrepo.com/show/522266/search.svg' alt='search-icon' width={24}></img>
                 </button>
                 <input
                     className={styles.input}

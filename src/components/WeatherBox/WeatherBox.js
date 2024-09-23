@@ -82,7 +82,7 @@ const WeatherBox = () => {
                         <div className={styles.extra}>
                             <div className={styles.flex}>
                                 <div className={styles.iconBox}>
-                                    <img src='https://www.svgrepo.com/show/502423/weather.svg'></img>
+                                    <img src='https://www.svgrepo.com/show/502423/weather.svg' alt='weather'></img>
                                 </div>
                                 <span className={styles.capitalize}>
                                     {info.weatherInfo}
@@ -90,14 +90,14 @@ const WeatherBox = () => {
                             </div>
                             <div className={styles.flex}>
                                 <div className={styles.iconBox}>
-                                    <img src='https://www.svgrepo.com/show/475599/wind-svg.svg'></img>
+                                    <img src='https://www.svgrepo.com/show/475599/wind-svg.svg' alt='wind-speed'></img>
                                 </div>
                                 <span>{info.wind}</span>
                             </div>
 
                             <div className={styles.flex}>
                                 <div className={styles.iconBox}>
-                                    <img src='https://www.svgrepo.com/show/530236/location.svg'></img>
+                                    <img src='https://www.svgrepo.com/show/530236/location.svg' alt='location'></img>
                                 </div>
                                 {info.city + ", " + info.country}
                             </div>
