@@ -49,9 +49,8 @@ const Input = () => {
             dispatch(setError('Please enter a city'))
         }
         else {
-
             dispatch(setError(null));
-            if (suggestion !== inputValue) {
+            if (suggestion !== city) {
                 dispatch(setLoading(true));
                 dispatch(setCity(suggestion));
             }
