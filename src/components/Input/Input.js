@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './Input.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCity, setError, setLoading } from '../../redux/action';
-import Loader from '../Loader/Loader';
 import { cities } from '../../utils/constants';
 
 const Input = () => {
@@ -10,7 +9,6 @@ const Input = () => {
     const [suggestions, setSuggestions] = useState([]);
     let city = useSelector(state => state.city);
     let errorMessage = useSelector(state => state.error);
-    let loading = useSelector((state) => state.loading);
     const dispatch = useDispatch();
 
     const handleInputChange = (e) => {
@@ -85,9 +83,6 @@ const Input = () => {
                         ))}
                     </ul>
                 )}
-                <div className={styles.loaderDiv}>
-                    {loading && <Loader />}
-                </div>
             </form>
             {
                 errorMessage && <p className={styles.error}>{errorMessage}</p>
